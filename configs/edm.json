@@ -1,0 +1,116 @@
+{
+  "image_channels": 1,
+  "run_tag": "",
+  "conditioning": "porosity",
+  "facies_values": [
+    0,
+    1
+  ],
+  "data": {
+    "source": "local",
+    "volume_path": null,
+    "dataset": "Berea",
+    "volume_dims": [
+      1000,
+      1000,
+      1000
+    ],
+    "patch_size": 64,
+    "stride": 32,
+    "flip_prob": 0.5,
+    "holdout_axis": 0,
+    "holdout_size": 0,
+    "stats_n_samples": 256,
+    "stats_seed": 0
+  },
+  "architecture": {
+    "in_channels": 1,
+    "out_channels": 1,
+    "model_channels": 32,
+    "num_res_blocks": 2,
+    "attention_resolutions": [],
+    "max_attention_tokens": 4096,
+    "dropout": 0.0,
+    "channel_mult": [
+      1,
+      2,
+      2,
+      4
+    ],
+    "conv_resample": false,
+    "dims": 3,
+    "num_classes": null,
+    "fraction_dim": 1,
+    "porosity_embedding": "fourier",
+    "porosity_fourier_levels": 8,
+    "porosity_dropout": 0.1,
+    "use_checkpoint": true,
+    "num_heads": 1,
+    "num_head_channels": -1,
+    "num_heads_upsample": -1,
+    "use_scale_shift_norm": true,
+    "resblock_updown": false,
+    "use_new_attention_order": true,
+    "with_fourier_features": false
+  },
+  "diffusion": {
+    "sigma_data": "auto",
+    "P_mean": -1.2,
+    "P_std": 1.2,
+    "sigma_dist": "uniform_t",
+    "sigma_train_min": 0.002,
+    "sigma_train_max": 80.0,
+    "sigma_min": 0.002,
+    "sigma_max": 80.0,
+    "rho": 7.0,
+    "loss_type": "mse",
+    "loss_weighting": "edm",
+    "huber_delta": 1.0,
+    "clip_denoised": false
+  },
+  "sampling": {
+    "sampler": "heun",
+    "num_steps": 32,
+    "S_churn": 0.0,
+    "S_tmin": 0.0,
+    "S_tmax": 1000000000.0,
+    "S_noise": 1.0,
+    "porosity_cfg_scale": 1.0,
+    "max_batch": 8,
+    "preview_n": 8,
+    "preview_grid_n": 8
+  },
+  "training": {
+    "batch_size": 8,
+    "lr": 0.0001,
+    "optimizer_betas": [
+      0.9,
+      0.95
+    ],
+    "decay_lr": false,
+    "ema_decay": 0.999,
+    "ema_decays": [
+      0.999,
+      0.9995,
+      0.9999
+    ],
+    "ema_for_sampling": 0.9999,
+    "log_sigma_bins": true,
+    "sigma_bins": 16,
+    "accum_iter": 1,
+    "num_workers": 8,
+    "steps_per_epoch": null,
+    "total_epochs": 100,
+    "session_epochs": 100,
+    "resume": "from_disk",
+    "sample_every": 5,
+    "seed": 42,
+    "lr_warmup_steps": 500,
+    "grad_clip_norm": 1.0,
+    "compute_dtype": "float32",
+    "amp_on_gpu": true,
+    "save_every": 10,
+    "checkpoint_every": 1,
+    "async_checkpoint": true
+  }
+}

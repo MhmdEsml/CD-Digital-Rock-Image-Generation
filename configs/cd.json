@@ -1,0 +1,89 @@
+{
+  "run_tag": "",
+  "data": {
+    "override": {},
+    "rms_tolerance": 0.02
+  },
+  "teacher": {
+    "allow_missing_fingerprint": false,
+    "ema_decay": 0.9999,
+    "porosity_cfg_scale": 1.0,
+    "solver": "heun",
+    "substeps": 1,
+    "compute_dtype": "float32",
+    "verify_hash": true
+  },
+  "student": {
+    "use_checkpoint": true,
+    "compute_dtype": "float32"
+  },
+  "consistency": {
+    "num_scales": 18,
+    "sigma_min": 0.002,
+    "sigma_max": 80.0,
+    "rho": 7.0,
+    "n_sampling": "uniform",
+    "n_P_mean": -1.1,
+    "n_P_std": 2.0,
+    "loss": "pseudo_huber",
+    "huber_c": 0.00054,
+    "weighting": "none",
+    "target_ema": 0.95,
+    "skip_k": 2
+  },
+  "training": {
+    "batch_size": 8,
+    "accum_iter": 1,
+    "lr": 5e-05,
+    "optimizer_betas": [
+      0.9,
+      0.95
+    ],
+    "weight_decay": 0.0,
+    "lr_warmup_steps": 200,
+    "grad_clip_norm": 1.0,
+    "ema_decays": [
+      0.999,
+      0.9999
+    ],
+    "num_workers": 4,
+    "steps_per_epoch": null,
+    "total_epochs": 50,
+    "session_epochs": 50,
+    "resume": "from_disk",
+    "seed": 42,
+    "checkpoint_every": 1,
+    "save_every": 5,
+    "matmul_precision": null,
+    "max_train_patches": null,
+    "max_steps_per_epoch": null
+  },
+  "evaluation": {
+    "schedules": {
+      "1-step": [],
+      "2-step": [
+        2.0
+      ],
+      "2-step g0.3": {
+        "taus": [
+          2.0
+        ],
+        "gamma": 0.3
+      },
+      "3-step": [
+        8.0,
+        1.0
+      ],
+      "3-step g0.3": {
+        "taus": [
+          8.0,
+          1.0
+        ],
+        "gamma": 0.3
+      }
+    }
+  },
+  "export": {
+    "ema_decay": null
+  }
+}

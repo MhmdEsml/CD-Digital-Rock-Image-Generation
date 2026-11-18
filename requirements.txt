@@ -1,0 +1,6 @@
+numpy
+tqdm
+# JAX must match your hardware; install it first, e.g.
+#   pip install -U "jax[cuda12]"        (NVIDIA GPU)
+#   pip install -U jax                  (CPU only, for smoke tests)
+jax

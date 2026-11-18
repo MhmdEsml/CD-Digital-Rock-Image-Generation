@@ -1,0 +1,41 @@
+{
+  "model": "both",
+  "weights": "ema",
+  "per_device_batch": 4,
+  "sampling_seed": 123,
+  "n_samples": 3000,
+  "seed": 42,
+  "teacher_dir": "runs/edm/teacher",
+  "student": "runs/cd/cd_student.pkl",
+  "volume": "data/Berea.raw",
+  "dataset": "Berea",
+  "volume_dims": [
+    1000,
+    1000,
+    1000
+  ],
+  "patch_size": 64,
+  "cd_steps": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "edm_steps": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    16,
+    32
+  ],
+  "out_dir": "samples"
+}

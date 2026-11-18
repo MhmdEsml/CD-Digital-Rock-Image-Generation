@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "porous-edm-cd"
+version = "0.1.0"
+description = "EDM teacher and consistency-distilled student for generating 3-D digital rock (porous media) microstructures in JAX"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Mohammad Esmaeili" }]
+requires-python = ">=3.10"
+keywords = ["digital rock physics", "diffusion models", "consistency distillation", "porous media", "JAX"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering",
+]
+# JAX is installed separately so that it matches your hardware (see README), plain `jax` is listed as the minimum.
+dependencies = [
+    "numpy",
+    "tqdm",
+    "jax",
+]
+
+[project.optional-dependencies]
+cuda12 = ["jax[cuda12]"]
+
+[tool.setuptools.packages.find]
+include = ["porous*"]

@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.raw
+*.pkl
+*.npz
+*.npy
+work_*/
+runs/
+data/
+.env
