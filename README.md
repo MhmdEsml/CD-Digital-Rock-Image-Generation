@@ -67,6 +67,28 @@ plus `real_samples.csv` (patch coordinates) in `<out-dir>/<dataset>/shared/`.
 
 All scripts use every local accelerator (data-parallel).
 
+## Citation
+
+If you use this code in your research, please cite the accompanying paper:
+
+> Esmaeili, M. (2026). *Distilling Diffusion Models for Efficient Generation of 3D Digital Rock Microstructures*.
+> SSRN. https://doi.org/10.2139/ssrn.7695998
+
+```bibtex
+@article{esmaeili2026distilling,
+  title   = {Distilling Diffusion Models for Efficient Generation of 3{D} Digital Rock Microstructures},
+  author  = {Esmaeili, Mohammad},
+  year    = {2026},
+  month   = nov,
+  journal = {SSRN Electronic Journal},
+  doi     = {10.2139/ssrn.7695998},
+  url     = {https://ssrn.com/abstract=7695998}
+}
+```
+
+The EDM teacher builds on Karras et al., *Elucidating the Design Space of Diffusion-Based Generative Models* (NeurIPS 2022);
+please also cite that work where appropriate.
+
 ## License
 
 Released under the [MIT License](LICENSE). You may use, modify and redistribute the code, including in your own research and
